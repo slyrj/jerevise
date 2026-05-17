@@ -16,7 +16,7 @@ export default function UploadScreen({ onImagesReady }: UploadScreenProps) {
     const url = URL.createObjectURL(file)
     img.onload = () => {
       // Redimensionner à max 1200px de large
-      const MAX = 1200
+      const MAX = 800
       let { width, height } = img
       if (width > MAX) {
         height = Math.round((height * MAX) / width)
@@ -29,7 +29,7 @@ export default function UploadScreen({ onImagesReady }: UploadScreenProps) {
       ctx.drawImage(img, 0, 0, width, height)
       URL.revokeObjectURL(url)
       // Qualité 0.7 = bon compromis lisibilité/poids
-      resolve(canvas.toDataURL('image/jpeg', 0.7))
+      resolve(canvas.toDataURL('image/jpeg', 0.5))
     }
     img.onerror = reject
     img.src = url
