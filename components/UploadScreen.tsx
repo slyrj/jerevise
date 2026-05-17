@@ -10,13 +10,30 @@ export default function UploadScreen({ onImagesReady }: UploadScreenProps) {
   const cameraInputRef = useRef<HTMLInputElement>(null)
 
   // Convertir un fichier en base64
-  const fileToBase64 = (file: File): Promise<string> =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader()
-      reader.onload = () => resolve(reader.result as string)
-      reader.onerror = reject
-      reader.readAsDataURL(file)
-    })
+ const fileToBase64 = (file: File): Promise<string> =>
+  new Promise((resolve, reject) => {
+    const img = new Image()
+    const url = URL.createObjectURL(file)
+    img.onload = () => {
+      // Redimensionner à max 1200px de large
+      const MAX = 1200
+      let { width, height } = img
+      if (width > MAX) {
+        height = Math.round((height * MAX) / width)
+        width = MAX
+      }
+      const canvas = document.createElement('canvas')
+      canvas.width = width
+      canvas.height = height
+      const ctx = canvas.getContext('2d')!
+      ctx.drawImage(img, 0, 0, width, height)
+      URL.revokeObjectURL(url)
+      // Qualité 0.7 = bon compromis lisibilité/poids
+      resolve(canvas.toDataURL('image/jpeg', 0.7))
+    }
+    img.onerror = reject
+    img.src = url
+  })
 
   // Traiter les fichiers sélectionnés
   const handleFiles = async (files: FileList | null) => {
