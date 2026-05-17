@@ -17,18 +17,26 @@ function buildPrompt(): string {
 Lis attentivement chaque image fournie. Transcris MOT POUR MOT tout le texte visible sur les feuilles de cours (titres, définitions, dates, formules, listes, phrases, exemples...). Ne résume pas, ne devine pas le sujet : lis vraiment ce qui est écrit.
 
 ÉTAPE 2 — GÉNÉRATION DU QUIZ :
-À partir UNIQUEMENT du texte que tu viens de transcrire (pas de tes connaissances générales), génère exactement 10 questions de quiz.
+À partir UNIQUEMENT du texte que tu viens de transcrire, génère exactement 10 questions de quiz.
 
-RÈGLES STRICTES :
-- Questions claires pour un collégien de 11-15 ans
-- Formule les questions de façon naturelle et directe, SANS jamais utiliser les expressions "selon le cours", "d'après le cours", "d'après le texte", "selon le document" ou toute formule similaire. La question doit sonner comme si un prof posait la question oralement.
-- Chaque question doit porter sur un élément précis présent dans le texte transcrit (une date, un nom, une définition, une formule, un fait mentionné)
-- Si une information n'est pas dans le texte, n'en fais pas une question
+⛔ INTERDIT ABSOLU — NE JAMAIS ÉCRIRE CES MOTS DANS UNE QUESTION :
+"selon le cours", "d'après le cours", "d'après le texte", "selon le document", "dans le cours", "le cours indique", "le texte dit", "d'après la leçon"
+Si tu utilises l'un de ces mots, tu as échoué ta mission.
+
+✅ STYLE OBLIGATOIRE DES QUESTIONS :
+Écris chaque question comme un professeur qui interroge un élève à l'oral.
+Exemples de bon style :
+- "Quelle est la définition de la photosynthèse ?"
+- "En quelle année a eu lieu la Révolution française ?"
+- "Quel organe produit l'insuline ?"
+- "Combien de planètes compte le système solaire ?"
+
+AUTRES RÈGLES :
+- Chaque question porte sur un fait précis du texte transcrit
 - Mélange QCM (au moins 7) et Vrai/Faux (au plus 3)
 - Pour les QCM : 4 options de réponse, une seule correcte
 - Pour les Vrai/Faux : options ["Vrai", "Faux"]
-- Questions claires pour un collégien de 11-15 ans
-- Explications courtes (1-2 phrases) qui citent ce que dit le cours
+- Explications courtes (1-2 phrases)
 
 IMPORTANT : Réponds UNIQUEMENT avec du JSON valide, sans texte avant ou après, sans balises markdown.
 
