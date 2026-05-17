@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0f0e17;
+  --cream: #fffcf2;
+  --accent: #ff6b35;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: #0f0e17;
+  color: #fffcf2;
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100dvh;
+  overscroll-behavior: none;
+}
+
+/* Scrollbar minimal */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #2d2b3d;
+  border-radius: 2px;
+}
+
+/* Animation delays pour les questions */
+.question-card:nth-child(1)  { animation-delay: 0.05s; }
+.question-card:nth-child(2)  { animation-delay: 0.10s; }
+.question-card:nth-child(3)  { animation-delay: 0.15s; }
+.question-card:nth-child(4)  { animation-delay: 0.20s; }
+.question-card:nth-child(5)  { animation-delay: 0.25s; }
+.question-card:nth-child(6)  { animation-delay: 0.30s; }
+.question-card:nth-child(7)  { animation-delay: 0.35s; }
+.question-card:nth-child(8)  { animation-delay: 0.40s; }
+.question-card:nth-child(9)  { animation-delay: 0.45s; }
+.question-card:nth-child(10) { animation-delay: 0.50s; }
